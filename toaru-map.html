@@ -2319,9 +2319,9 @@ function syncHostState(state) {
     document.querySelector('.phase-strip [data-phase="' + phase + '"]')?.click();
   }
   const label = [...new Set([location.区域,location.场所].filter(Boolean))].join(' · ');
-  currentLocation.textContent = opening ? '出生地固定：学园都市' : '当前位置：' + (label || byId.get(id).name);
+  currentLocation.textContent = opening ? '' : '当前位置：' + (label || byId.get(id).name);
   currentLocation.title = currentLocation.textContent;
-  currentLocation.hidden = false;
+  currentLocation.hidden = opening;
   if (id === currentNodeId && mode === previousMode) return;
   if (currentMarker) markers.get(currentMarker.id)?.pin.removeAttribute('data-current');
   currentNodeId = id;
